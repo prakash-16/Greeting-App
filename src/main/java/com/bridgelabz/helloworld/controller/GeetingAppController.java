@@ -7,10 +7,15 @@ import org.json.simple.JSONObject;
 
 @RestController
 public class GeetingAppController {
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/json/param/{firstName}/{lastName}")
 	public JSONObject jsonObject(@PathVariable String firstName, @PathVariable String lastName) {
 		JSONObject job = new JSONObject();
 		job.put(firstName, lastName);
 		return job;
+	}
+	@RequestMapping("/welcome")
+	public String welcomeMssg() {
+		return "Hello World";
 	}
 }
